@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import Header from '@/components/Header';
-import BottomNav from '@/components/BottomNav';
-import PageTransition from '@/components/PageTransition';
+import Header from '../components/Header';
+import BottomNav from '../components/BottomNav';
+import PageTransition from '../components/PageTransition';
 import { 
   User, 
   Users, 
@@ -54,7 +54,7 @@ export default function ProfilePage() {
             <div className="flex items-center gap-4 mb-5">
               <div className="relative w-20 h-20 rounded-2xl bg-neutral-900 border-2 border-lime-400 p-0.5 overflow-hidden glow-lime">
                 <img 
-                  src="/raventer1.jpg" 
+                  src="/raventer2.jpg" 
                   alt="Profile Avatar" 
                   className="w-full h-full object-cover rounded-xl"
                   onError={(e) => {
@@ -65,7 +65,7 @@ export default function ProfilePage() {
 
               <div className="flex-1">
                 <div className="flex items-center justify-between">
-                  <h1 className="text-xl font-black uppercase tracking-tight">RAVER_7413</h1>
+                  <h1 className="text-xl font-black uppercase tracking-tight">Randomguy </h1>
                   <button className="p-1.5 rounded-lg bg-neutral-800/80 border border-[var(--border-color)] text-[var(--text-muted)] hover:text-white transition-colors">
                     <Settings className="w-4 h-4" />
                   </button>

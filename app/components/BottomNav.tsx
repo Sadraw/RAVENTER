@@ -1,29 +1,59 @@
+'use client';
+
 import React from 'react';
 import { Flame, Compass, Image as ImageIcon, User } from 'lucide-react';
-import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function BottomNav() {
+  const pathname = usePathname();
+
   return (
-    <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-50 bg-[var(--bg-nav)] backdrop-blur-xl border-t border-[var(--border-color)] px-4 py-3 flex justify-between items-center text-[var(--text-muted)] transition-colors duration-300">
-      <Link href="/" className="flex flex-col items-center gap-1 text-lime-400">
+    <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md z-[9999] bg-[var(--bg-nav)] backdrop-blur-xl border-t border-[var(--border-color)] px-4 py-3 flex justify-between items-center transition-colors duration-300">
+      
+      {/* RAVES / HOME */}
+      <a 
+        href="/" 
+        className={`flex flex-col items-center gap-1 transition-colors ${
+          pathname === '/' ? 'text-lime-400' : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+        }`}
+      >
         <Flame className="w-5 h-5" />
         <span className="text-[9px] font-bold uppercase tracking-widest">Raves</span>
-      </Link>
+      </a>
       
-      <Link href="/radar" className="flex flex-col items-center gap-1 hover:text-lime-400 transition-colors">
+      {/* RADAR */}
+      <a 
+        href="/radar" 
+        className={`flex flex-col items-center gap-1 transition-colors ${
+          pathname === '/radar' ? 'text-lime-400' : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+        }`}
+      >
         <Compass className="w-5 h-5" />
         <span className="text-[9px] font-bold uppercase tracking-widest">Radar</span>
-      </Link>
+      </a>
 
-      <Link href="/gallery" className="flex flex-col items-center gap-1 hover:text-lime-400 transition-colors">
+      {/* GALLERY */}
+      <a 
+        href="/gallery" 
+        className={`flex flex-col items-center gap-1 transition-colors ${
+          pathname === '/gallery' ? 'text-lime-400' : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+        }`}
+      >
         <ImageIcon className="w-5 h-5" />
         <span className="text-[9px] font-bold uppercase tracking-widest">Gallery</span>
-      </Link>
+      </a>
       
-      <button className="flex flex-col items-center gap-1 hover:text-[var(--text-primary)] transition-colors">
+      {/* PROFILE */}
+      <a 
+        href="/profile" 
+        className={`flex flex-col items-center gap-1 transition-colors ${
+          pathname === '/profile' ? 'text-lime-400' : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'
+        }`}
+      >
         <User className="w-5 h-5" />
         <span className="text-[9px] font-bold uppercase tracking-widest">Profile</span>
-      </button>
+      </a>
+
     </div>
   );
 }
