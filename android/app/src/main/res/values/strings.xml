@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Raventer</string>
+    <string name="title_activity_main">Raventer</string>
+    <string name="package_name">n1.raventer.app</string>
+    <string name="custom_url_scheme">n1.raventer.app</string>
+</resources>
