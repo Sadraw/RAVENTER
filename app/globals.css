@@ -1,36 +1,47 @@
 @import "tailwindcss";
 
-@theme {
-  --color-background: #08080a;
-  --color-foreground: #f4f4f5;
-  --color-lime-accent: #a3e635;
-  --color-cyan-accent: #22d3ee;
+/* Force Tailwind v4 to use class-based dark mode instead of system media queries */
+@variant dark (.dark &);
+
+/* DEFAULT DARK THEME (OLED Dark) */
+:root,
+.dark {
+  --bg-main: #08080a;
+  --bg-shell: #08080a;
+  --bg-card: rgba(18, 18, 22, 0.75);
+  --bg-nav: rgba(8, 8, 10, 0.85);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-primary: #f4f4f5;
+  --text-muted: #a1a1aa;
 }
 
-:root {
-  --background: #08080a;
-  --foreground: #f4f4f5;
+/* INDUSTRIAL LIGHT MODE (Steel / Slate Metallic - No Pure White) */
+.light {
+  --bg-main: #131418;         /* Deep industrial background */
+  --bg-shell: #22252a;        /* Slate metallic container */
+  --bg-card: rgba(45, 49, 58, 0.85); /* Metallic card background */
+  --bg-nav: rgba(34, 37, 42, 0.9);   /* Header background */
+  --border-color: rgba(255, 255, 255, 0.15);
+  --text-primary: #f1f5f9;    /* Crisp platinum text */
+  --text-muted: #94a3b8;      /* Muted steel text */
 }
 
 body {
-  background-color: #08080a !important;
-  color: #f4f4f5 !important;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
   min-height: 100vh;
   font-family: system-ui, -apple-system, sans-serif;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 /* Custom Glass & Glow Utilities */
 .glass-card {
-  background-color: rgba(18, 18, 22, 0.75) !important;
+  background-color: var(--bg-card) !important;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .glow-lime {
   box-shadow: 0 0 20px rgba(163, 230, 53, 0.4);
-}
-
-.glow-cyan {
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
 }
