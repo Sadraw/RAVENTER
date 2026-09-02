@@ -1,23 +1,27 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import Navbar from "./components/Navbar";
+import type { Metadata, Viewport } from 'next';
+import './globals.css';
 
 export const metadata: Metadata = {
-  title: "RAVENTER — Drum & Bass from Deventer",
-  description:
-    "Raventer — a Drum & Bass project from Deventer, Netherlands. News, shows, livestreams and announcements.",
-  themeColor: "#070707",
+  title: 'Raventer',
+  description: 'East Netherlands DnB Hub',
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  viewportFit: 'cover',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body>
-        <Navbar />
+      <body className="select-none touch-manipulation overscroll-none">
         {children}
       </body>
     </html>

@@ -1,9 +1,9 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'n1.raventer.app',
+  appId: 'nl.raventer.app',
   appName: 'Raventer',
-  webDir: 'public'
+  webDir: 'out'
 };
 
 export default config;
