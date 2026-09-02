@@ -1,9 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: 'export', // Required for Capacitor mobile builds
   images: {
-    unoptimized: true,
+    unoptimized: true, // Allows public images to serve statically without server image optimization
   },
 };
 
