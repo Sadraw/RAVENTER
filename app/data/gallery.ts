@@ -7,37 +7,11 @@ export interface GalleryItem {
   category: 'Rave' | 'Collaborator' | 'Flyer' | 'HQ';
 }
 
-export const GALLERY_ITEMS: GalleryItem[] = [
-  {
-    id: 'havenkwartier-01',
-    title: 'Havenkwartier Session',
-    location: 'Deventer',
-    date: 'AUG 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80',
-    category: 'Rave',
-  },
-  {
-    id: 'subsonic-poster',
-    title: 'SubSonic Underground Flyer',
-    location: 'Enschede',
-    date: 'SEP 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80',
-    category: 'Flyer',
-  },
-  {
-    id: 'smyrnastraat-hq',
-    title: 'Smyrnastraat 7413 BB HQ',
-    location: 'Deventer HQ',
-    date: 'JUL 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1598387993441-a364f854c3e1?auto=format&fit=crop&w=800&q=80',
-    category: 'HQ',
-  },
-  {
-    id: 'zwolle-industrial',
-    title: 'Zone B Sound System',
-    location: 'Zwolle',
-    date: 'JUN 2026',
-    imageUrl: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80',
-    category: 'Collaborator',
-  },
-];
+export const GALLERY_ITEMS: GalleryItem[] = Array.from({ length: 10 }, (_, i) => ({
+  id: `walhalla-0${i + 1}`,
+  title: `Walhalla Session #${i + 1}`,
+  location: 'Walhalla Deventer',
+  date: '07 MAR 2026',
+  imageUrl: `/raventer${i + 1}.jpg`, // Points directly to public/raventerX.jpg
+  category: i % 2 === 0 ? 'Rave' : 'Collaborator',
+}));
