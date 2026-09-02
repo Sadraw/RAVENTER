@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { CornerDownLeft, Calendar, MapPin, Music, Radio, Ticket, Zap, Flame, Compass, User } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -23,6 +24,9 @@ export default function Home() {
           .animate-glitch {
             animation: glitch-anim 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
           }
+          .glitch-hover:hover {
+            animation: glitch-anim 0.2s ease-in-out infinite;
+          }
         `}</style>
 
         {/* BACKGROUND GLOWS */}
@@ -31,15 +35,15 @@ export default function Home() {
 
         {/* MOBILE APP HEADER */}
         <nav className="sticky top-0 z-50 flex items-center justify-between px-5 py-4 border-b border-neutral-800/80 backdrop-blur-xl bg-[#08080a]/85">
-          <div className="flex items-center gap-1 font-black text-xl tracking-tighter uppercase select-none">
-            <span>RAV</span>
-            <span className="inline-flex items-center justify-center bg-lime-400 text-neutral-950 p-1 rounded-md mx-0.5 glow-lime">
+          <div className="flex items-center gap-1 font-black text-xl tracking-tighter uppercase select-none group cursor-pointer">
+            <span className="group-hover:text-cyan-400 transition-colors">RAV</span>
+            <span className="inline-flex items-center justify-center bg-lime-400 text-neutral-950 p-1 rounded-md mx-0.5 glow-lime group-hover:animate-glitch">
               <CornerDownLeft className="w-4 h-4 stroke-[3]" />
             </span>
-            <span className="text-lime-400">NTER</span>
+            <span className="text-lime-400 group-hover:text-white transition-colors">NTER</span>
           </div>
 
-          <button className="flex items-center gap-1.5 bg-neutral-900 border border-neutral-800 text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full active:scale-95 transition-all">
+          <button className="flex items-center gap-1.5 bg-neutral-900 border border-neutral-800 text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-full active:scale-95 transition-all glow-lime">
             <Radio className="w-3.5 h-3.5 text-lime-400 animate-pulse" />
             Live
           </button>
@@ -52,9 +56,10 @@ export default function Home() {
             East Netherlands Hub
           </div>
 
-          <h1 className="text-3xl font-extrabold tracking-tight uppercase leading-tight mb-3">
+          {/* GLITCH HEADING */}
+          <h1 className="text-3xl font-extrabold tracking-tight uppercase leading-tight mb-3 select-none">
             ENTER THE <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-300 to-cyan-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 via-emerald-300 to-cyan-400 inline-block glitch-hover cursor-pointer">
               SOUND SPECTRUM
             </span>
           </h1>
@@ -128,10 +133,12 @@ export default function Home() {
             <Flame className="w-5 h-5" />
             <span className="text-[9px] font-bold uppercase tracking-widest">Raves</span>
           </button>
-          <button className="flex flex-col items-center gap-1 hover:text-neutral-200 transition-colors">
+          
+          <Link href="/radar" className="flex flex-col items-center gap-1 hover:text-lime-400 transition-colors">
             <Compass className="w-5 h-5" />
             <span className="text-[9px] font-bold uppercase tracking-widest">Radar</span>
-          </button>
+          </Link>
+          
           <button className="flex flex-col items-center gap-1 hover:text-neutral-200 transition-colors">
             <User className="w-5 h-5" />
             <span className="text-[9px] font-bold uppercase tracking-widest">Profile</span>
