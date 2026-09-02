@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { CornerDownLeft, Radio, Sun, Moon } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
@@ -121,8 +122,8 @@ export default function Header() {
         }
       `}</style>
 
-      {/* HOVER TRANSFORMING LOGO CONTAINER */}
-      <div className="group cursor-pointer relative flex items-center h-8 select-none">
+      {/* HOVER TRANSFORMING LOGO CONTAINER WITH LINK TO HOME */}
+      <Link href="/" className="group cursor-pointer relative flex items-center h-8 select-none">
         
         {/* DEFAULT BRAND LOGO: RAV[↵]NTER */}
         <div className="glitch-out flex items-center gap-1 font-black text-xl tracking-tighter uppercase transition-all duration-200">
@@ -138,7 +139,7 @@ export default function Header() {
           Raventer
         </div>
 
-      </div>
+      </Link>
 
       {/* HEADER ACTIONS */}
       <div className="flex items-center gap-2">
